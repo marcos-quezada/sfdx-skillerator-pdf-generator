@@ -1,12 +1,18 @@
 {
-  "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "SkilleratorPdfGeneratorPkg",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "name": "sfdx-skillerator-pdf-generator",
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "53.0",
+    "packageAliases": {
+        "SkilleratorPdfGeneratorPkg": "0Ho9W000000001JSAQ"
     }
-  ],
-  "name": "sfdx-skillerator-pdf-generator",
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "55.0"
 }
