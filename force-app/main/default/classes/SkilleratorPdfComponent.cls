@@ -9,7 +9,7 @@ public class SkilleratorPdfComponent {
         endpointBase += accountId;
         String endpointCompile = endpointBase + '/compile';
 
-        List<Account> accounts = [SELECT CountryOfOriginPick__c,Description,FirstName,Gender__pc,LastName,PersonBirthdate,Salutation,PersonMailingStreet,PersonMailingPostalCode,PersonMailingCity FROM Account WHERE Id = :accountId];
+        List<Account> accounts = [SELECT toLabel(CountryOfOriginPick__c),Description,FirstName,Gender__pc,LastName,MiddleName,PersonBirthdate,Salutation,PersonMailingStreet,PersonMailingPostalCode,PersonMailingCity FROM Account WHERE Id = :accountId];
         if(accounts.isEmpty()){
             throw new MyException('Could not find the account');
         }
@@ -55,7 +55,7 @@ public class SkilleratorPdfComponent {
                                  '\\\\setboolean{IsErsterteilung}{false} ' + 
             					 '\\\\setboolean{IsVerlaengerung}{true} ' + 
             					 '\\\\newcommand{\\\\Name}{' + account.LastName +'} ' + 
-            					 '\\\\newcommand{\\\\Vorname}{' + account.FirstName + '} ' + 
+            					 '\\\\newcommand{\\\\Vorname}{' + account.FirstName + ' ' + account.MiddleName + '} ' + 
              					 '\\\\setboolean{IsWeiblich}{' + account.Salutation.equals('Ms.') + '} ' + 
             					 '\\\\setboolean{IsMaennlich}{' + account.Salutation.equals('Mr.') + '} ' + 
             					 '\\\\setboolean{IsDivers}{' + account.Salutation.equals('Mx.') + '} ' + 
@@ -72,15 +72,15 @@ public class SkilleratorPdfComponent {
             					 '\\\\newcommand{\\\\Betriebsnummer}{95695562} ' + 
             					 '\\\\setboolean{IsNeueinreise}{true} ' + 
             					 '\\\\newcommand{\\\\beginnt}{} ' + 
-            					 '\\\\setboolean{IsVerlaengerungI}{false} ' + 
+            					 '\\\\setboolean{IsVerlaengerung}{false} ' + 
             					 '\\\\newcommand{\\\\besteht}{} ' + 
             					 '\\\\setboolean{IsBefristet}{true} ' + 
             					 '\\\\newcommand{\\\\befristet}{}' + 
             					 '\\\\setboolean{IsLeiharbeiter}{true} ' + 
             					 '\\\\setboolean{IsArbeitsort}{true} ' + 
-            					 '\\\\newcommand{\\\\Ort}{' + account.PersonMailingCity + '} ' + 
+            					 '\\\\newcommand{\\\\Ort}{Großraum München} ' + 
             					 '\\\\newcommand{\\\\BeschreibungTaetigkeit}{Helfertätigkeiten in Stellen der Produktionsbranche, in Lager und Logistik, im Verkauf, bei Verwaltungsaufgaben und Bürotätigkeiten, in der Gastronomie, im Hotelgewerbe, im Baunebengewerbe, im Pflegebereich.} ' + 
-            					 '\\\\setboolean{IsKein Abschluss}{true} ' + 
+            					 '\\\\setboolean{IsKeinAbschluss}{true} ' + 
             					 '\\\\setboolean{IsHochschule}{false} ' + 
             					 '\\\\newcommand{\\\\AbschlussArt}{} ' + 
             					 '\\\\newcommand{\\\\AbschlussOrt}{} ' + 
