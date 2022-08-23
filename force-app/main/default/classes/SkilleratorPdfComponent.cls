@@ -18,6 +18,13 @@ public class SkilleratorPdfComponent {
         
         String genderStr = account.Salutation;
 
+        Boolean isBefristet = Boolean.valueOf('true');
+        String befristetBis = '';
+        if(isBefristet){
+            DateTime befristetBisDate = System.Now().addDays(-1).addYears(1);
+            befristetBis = befristetBisDate.format();
+        }
+
         String body = '{' +
             '"compile": {' +
                 '"options": {' +
@@ -51,8 +58,8 @@ public class SkilleratorPdfComponent {
                 '},{' +
                     '"path": "variablen.tex",' +
                     '"content": "\\\\newif\\\\ifIsAufenthaltstitel\\\\IsAufenthaltstitelfalse ' + 
-                                 '\\\\newif\\\\ifIsVorabzustimmung\\\\IsVorabzustimmungtrue ' + 
-                                 '\\\\newif\\\\ifIsErsterteilung\\\\IsErsterteilungfalse ' + 
+                                 '\\\\newif\\\\ifIsVorabzustimmung\\\\IsVorabzustimmungfalse ' + 
+                                 '\\\\newif\\\\ifIsErsterteilung\\\\IsErsterteilungtrue ' + 
             					 '\\\\newif\\\\ifIsVerlaengerung\\\\IsVerlaengerungtrue ' + 
             					 '\\\\newcommand{\\\\Name}{' + account.LastName +'} ' + 
             					 '\\\\newcommand{\\\\Vorname}{' + account.FirstName + ' ' + account.MiddleName + '} ' + 
@@ -71,11 +78,11 @@ public class SkilleratorPdfComponent {
             					 '\\\\newcommand{\\\\EMail}{simone.diterlizzi@social-bee.de} ' + 
             					 '\\\\newcommand{\\\\Betriebsnummer}{95695562} ' + 
             					 '\\\\newif\\\\ifIsNeueinreise\\\\IsNeueinreisetrue ' + 
-            					 '\\\\newcommand{\\\\beginnt}{} ' + 
+            					 '\\\\newcommand{\\\\beginnt}{\\\\today} ' + 
             					 '\\\\newif\\\\ifIsVerlaengerung\\\\IsVerlaengerungfalse ' + 
             					 '\\\\newcommand{\\\\besteht}{} ' + 
-            					 '\\\\newif\\\\ifIsBefristet\\\\IsBefristettrue ' + 
-            					 '\\\\newcommand{\\\\befristet}{}' + 
+            					 '\\\\newif\\\\ifIsBefristet\\\\IsBefristet' + isBefristet + ' ' + 
+            					 '\\\\newcommand{\\\\befristet}{' + befristetBis + '}' + 
             					 '\\\\newif\\\\ifIsLeiharbeiter\\\\IsLeiharbeitertrue ' + 
             					 '\\\\newif\\\\ifIsArbeitsort\\\\IsArbeitsorttrue ' + 
             					 '\\\\newcommand{\\\\Ort}{Großraum München} ' + 
