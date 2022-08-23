@@ -8,8 +8,7 @@ public class SkilleratorPdfComponent {
         String endpointBase = 'http://159.223.24.62/project/';
         endpointBase += accountId;
         String endpointCompile = endpointBase + '/compile';
-        String thisIsAtest = 'Hallo';
-
+        
         List<Account> accounts = [SELECT toLabel(CountryOfOriginPick__c),Description,FirstName,Gender__pc,LastName,MiddleName,PersonBirthdate,Salutation,PersonMailingStreet,PersonMailingPostalCode,PersonMailingCity FROM Account WHERE Id = :accountId];
         if(accounts.isEmpty()){
             throw new MyException('Could not find the account');
