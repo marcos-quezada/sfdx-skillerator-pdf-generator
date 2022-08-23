@@ -50,15 +50,15 @@ public class SkilleratorPdfComponent {
                     '"url": "http://resources-server/templates/arbeitserlaubnis_formular.tex"' +
                 '},{' +
                     '"path": "variablen.tex",' +
-                    '"content": "\\\\setboolean{IsAufenthaltstitel}{false} ' + 
-                                 '\\\\setboolean{IsVorabzustimmung}{true} ' + 
-                                 '\\\\setboolean{IsErsterteilung}{false} ' + 
-            					 '\\\\setboolean{IsVerlaengerung}{true} ' + 
+                    '"content": "\\\\newif\\\\ifIsAufenthaltstitel\\\\IsAufenthaltstitelfalse ' + 
+                                 '\\\\newif\\\\ifIsVorabzustimmung\\\\IsVorabzustimmungtrue ' + 
+                                 '\\\\newif\\\\ifIsErsterteilung\\\\IsErsterteilungfalse ' + 
+            					 '\\\\newif\\\\ifIsVerlaengerung\\\\IsVerlaengerungtrue ' + 
             					 '\\\\newcommand{\\\\Name}{' + account.LastName +'} ' + 
             					 '\\\\newcommand{\\\\Vorname}{' + account.FirstName + ' ' + account.MiddleName + '} ' + 
-             					 '\\\\setboolean{IsWeiblich}{' + account.Salutation.equals('Ms.') + '} ' + 
-            					 '\\\\setboolean{IsMaennlich}{' + account.Salutation.equals('Mr.') + '} ' + 
-            					 '\\\\setboolean{IsDivers}{' + account.Salutation.equals('Mx.') + '} ' + 
+             					 '\\\\newif\\\\ifIsWeiblich\\\\IsWeiblich' + account.Salutation.equals('Ms.') + ' ' + 
+            					 '\\\\newif\\\\ifIsMaennlich\\\\IsMaennlich' + account.Salutation.equals('Mr.') + ' ' + 
+            					 '\\\\newif\\\\ifIsDivers\\\\IsDivers' + account.Salutation.equals('Mx.') + ' ' + 
             					 '\\\\newcommand{\\\\Geburtsdatum}{' + account.PersonBirthdate.format() + '} ' + 
             					 '\\\\newcommand{\\\\Staatsangehörigkeit}{' + account.CountryOfOriginPick__c + '} ' + 
             					 '\\\\newcommand{\\\\Aufenthaltsort}{' + account.PersonMailingStreet + ', ' + account.PersonMailingPostalCode + ' ' + account.PersonMailingCity +'} ' + 
@@ -70,69 +70,69 @@ public class SkilleratorPdfComponent {
             					 '\\\\newcommand{\\\\Fax}{089/24887906} ' + 
             					 '\\\\newcommand{\\\\EMail}{simone.diterlizzi@social-bee.de} ' + 
             					 '\\\\newcommand{\\\\Betriebsnummer}{95695562} ' + 
-            					 '\\\\setboolean{IsNeueinreise}{true} ' + 
+            					 '\\\\newif\\\\ifIsNeueinreise\\\\IsNeueinreisetrue ' + 
             					 '\\\\newcommand{\\\\beginnt}{} ' + 
-            					 '\\\\setboolean{IsVerlaengerung}{false} ' + 
+            					 '\\\\newif\\\\ifIsVerlaengerung\\\\IsVerlaengerungfalse ' + 
             					 '\\\\newcommand{\\\\besteht}{} ' + 
-            					 '\\\\setboolean{IsBefristet}{true} ' + 
+            					 '\\\\newif\\\\ifIsBefristet\\\\IsBefristettrue ' + 
             					 '\\\\newcommand{\\\\befristet}{}' + 
-            					 '\\\\setboolean{IsLeiharbeiter}{true} ' + 
-            					 '\\\\setboolean{IsArbeitsort}{true} ' + 
+            					 '\\\\newif\\\\ifIsLeiharbeiter\\\\IsLeiharbeitertrue ' + 
+            					 '\\\\newif\\\\ifIsArbeitsort\\\\IsArbeitsorttrue ' + 
             					 '\\\\newcommand{\\\\Ort}{Großraum München} ' + 
             					 '\\\\newcommand{\\\\BeschreibungTaetigkeit}{Helfertätigkeiten in Stellen der Produktionsbranche, in Lager und Logistik, im Verkauf, bei Verwaltungsaufgaben und Bürotätigkeiten, in der Gastronomie, im Hotelgewerbe, im Baunebengewerbe, im Pflegebereich.} ' + 
-            					 '\\\\setboolean{IsKeinAbschluss}{true} ' + 
-            					 '\\\\setboolean{IsHochschule}{false} ' + 
+            					 '\\\\newif\\\\ifIsKeinAbschluss\\\\IsKeinAbschlusstrue ' + 
+            					 '\\\\newif\\\\ifIsHochschule\\\\IsHochschulefalse ' + 
             					 '\\\\newcommand{\\\\AbschlussArt}{} ' + 
             					 '\\\\newcommand{\\\\AbschlussOrt}{} ' + 
-            					 '\\\\setboolean{IsAbschlussVergleichbar}{false} ' + 
+            					 '\\\\newif\\\\ifIsAbschlussVergleichbar\\\\IsAbschlussVergleichbarfalse ' + 
             					 '\\\\newcommand{\\\\NachweisAbschluss}{} ' + 
-            					 '\\\\setboolean{IsBerufsausbildung}{false} ' + 
+            					 '\\\\newif\\\\ifIsBerufsausbildung\\\\IsBerufsausbildungfalse ' + 
             					 '\\\\newcommand{\\\\Berufsausbildung}{} ' + 
             					 '\\\\newcommand{\\\\BerufsausbildungOrt}{} ' + 
-            					 '\\\\setboolean{IsBeruflicheAnerkennungJa}{false} ' + 
-            					 '\\\\setboolean{IsBeruflicheAnerkennungNein}{false} ' + 
-            					 '\\\\setboolean{IsBeruflicheAnerkennungTeilweise}{false} ' + 
+            					 '\\\\newif\\\\ifIsBeruflicheAnerkennungJa\\\\IsBeruflicheAnerkennungJafalse ' + 
+            					 '\\\\newif\\\\ifIsBeruflicheAnerkennungNein\\\\IsBeruflicheAnerkennungNeinfalse ' + 
+            					 '\\\\newif\\\\ifIsBeruflicheAnerkennungTeilweise\\\\IsBeruflicheAnerkennungTeilweisefalse ' + 
             					 '\\\\newcommand{\\\\Nachweis}{} ' + 
-            					 '\\\\setboolean{IsSonstigeAusbildung}{true} ' + 
+            					 '\\\\newif\\\\ifIsSonstigeAusbildung\\\\IsSonstigeAusbildungtrue ' + 
             					 '\\\\newcommand{\\\\Faehigkeiten}{Deutschkenntnisse A2} ' + 
-            					 '\\\\setboolean{IsKeineAusbildungFreiwillig}{true} ' + 
+            					 '\\\\newif\\\\ifIsKeineAusbildungFreiwillig\\\\IsKeineAusbildungFreiwilligtrue ' + 
             					 '\\\\newcommand{\\\\FreiwilligeAngabe}{} ' + 
-            					 '\\\\setboolean{IsBerufsausuebungserlaubnis}{false} ' + 
+            					 '\\\\newif\\\\ifIsBerufsausuebungserlaubnis\\\\IsBerufsausuebungserlaubnisfalse ' + 
             					 '\\\\newcommand{\\\\QualifikationErlaubnis}{} ' + 
-            					 '\\\\setboolean{IsVollzeit}{true} ' + 
+            					 '\\\\newif\\\\ifIsVollzeit\\\\IsVollzeittrue ' + 
             					 '\\\\newcommand{\\\\Vollzeit}{35} ' + 
-            					 '\\\\setboolean{IsTeilzeit}{false} ' + 
+            					 '\\\\newif\\\\ifIsTeilzeit\\\\IsTeilzeitfalse ' + 
             					 '\\\\newcommand{\\\\Teilzeit}{} ' + 
-            					 '\\\\setboolean{IsGeringfuegigeBeschaeftigung}{false} ' + 
+            					 '\\\\newif\\\\ifIsGeringfuegigeBeschaeftigung\\\\IsGeringfuegigeBeschaeftigungfalse ' + 
             					 '\\\\newcommand{\\\\GeringfuegigeBeschaeftigung}{} ' + 
-            					 '\\\\setboolean{IsUeberstundenpflicht}{false} ' + 
+            					 '\\\\newif\\\\ifIsUeberstundenpflicht\\\\IsUeberstundenpflichtfalse ' + 
             					 '\\\\newcommand{\\\\Ueberstundenzahl}{} ' + 
             					 '\\\\newcommand{\\\\Ueberstundenausgleich}{} ' + 
             					 '\\\\newcommand{\\\\ArbeitstageProUrlaubsjahr}{24} ' + 
-            					 '\\\\setboolean{IsTarifvertrag}{true} ' + 
+            					 '\\\\newif\\\\ifIsTarifvertrag\\\\IsTarifvertragtrue ' + 
             					 '\\\\newcommand{\\\\Tarifvertrag}{IGZ} ' + 
             					 '\\\\newcommand{\\\\Entgeltgruppe}{1} ' + 
-            					 '\\\\setboolean{IsVereinbarungArbeitsvertrag}{false} ' + 
-            					 '\\\\setboolean{IsLohn}{true} ' + 
-            					 '\\\\setboolean{IsGehalt}{false} ' + 
-            					 '\\\\setboolean{IsProStunde}{true} ' + 
-            					 '\\\\newcommand{\\\\Stunde}{Mind. 10,88 Euro} ' + 
-            					 '\\\\setboolean{IsProMonat}{false} ' + 
+            					 '\\\\newif\\\\ifIsVereinbarungArbeitsvertrag\\\\IsVereinbarungArbeitsvertragfalse ' + 
+            					 '\\\\newif\\\\ifIsLohn\\\\IsLohntrue ' + 
+            					 '\\\\newif\\\\ifIsGehalt\\\\IsGehaltfalse ' + 
+            					 '\\\\newif\\\\ifIsProStunde\\\\IsProStundetrue ' + 
+            					 '\\\\newcommand{\\\\Stunde}{Mind. IGZ Mindestlohn} ' + 
+            					 '\\\\newif\\\\ifIsProMonat\\\\IsProMonatfalse ' + 
             					 '\\\\newcommand{\\\\ProMonat}{} ' + 
-            					 '\\\\setboolean{IsGeldwerteLeistung}{false} ' + 
+            					 '\\\\newif\\\\ifIsGeldwerteLeistung\\\\IsGeldwerteLeistungfalse ' + 
             					 '\\\\newcommand{\\\\GeldwerteLeistungForm}{} ' + 
             					 '\\\\newcommand{\\\\GeldwerteLeistung}{} ' + 
-            					 '\\\\setboolean{IsSonstigeBerechnung}{false} ' + 
+            					 '\\\\newif\\\\ifIsSonstigeBerechnung\\\\IsSonstigeBerechnungfalse ' + 
             					 '\\\\newcommand{\\\\SonstigeBerechnung}{} ' + 
-            					 '\\\\setboolean{IsSozialversicherungspflicht}{true} ' + 
+            					 '\\\\newif\\\\ifIsSozialversicherungspflicht\\\\IsSozialversicherungspflichttrue ' + 
             					 '\\\\newcommand{\\\\KeineSozialversicherungspflicht}{} ' + 
-            					 '\\\\setboolean{IsRueckstaendeSozSteu}{false} ' + 
-            					 '\\\\setboolean{IsStrafBussgeld}{false} ' + 
-            					 '\\\\setboolean{IsInsolvenz}{false} ' + 
-            					 '\\\\setboolean{IsInsolvenzAbgelehnt}{false} ' + 
+            					 '\\\\newif\\\\ifIsRueckstaendeSozSteu\\\\IsRueckstaendeSozSteufalse ' + 
+            					 '\\\\newif\\\\ifIsStrafBussgeld\\\\IsStrafBussgeldfalse ' + 
+            					 '\\\\newif\\\\ifIsInsolvenz\\\\IsInsolvenzfalse ' + 
+            					 '\\\\newif\\\\ifIsInsolvenzAbgelehnt\\\\IsInsolvenzAbgelehntfalse ' + 
             					 '\\\\newcommand{\\\\Gruendungsjahr}{2016} ' + 
             					 '\\\\newcommand{\\\\AnzahlAN}{124} ' + 
-            					 '\\\\setboolean{IsVerwandtschaft}{false} ' + 
+            					 '\\\\newif\\\\ifIsVerwandtschaft\\\\IsVerwandtschaftfalse ' + 
             					 '\\\\newcommand{\\\\Amtsgericht}{} ' + 
             					 '\\\\newcommand{\\\\Registernummer}{} ' + 
             					 '\\\\newcommand{\\\\WeitereAngabenSvier}{} ' + 
