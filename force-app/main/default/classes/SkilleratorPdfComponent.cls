@@ -92,7 +92,7 @@ public class SkilleratorPdfComponent {
             					 '\\\\newif\\\\ifIsBerufsausbildung\\\\IsBerufsausbildungfalse ' + 
             					 '\\\\newcommand{\\\\Berufsausbildung}{} ' + 
             					 '\\\\newcommand{\\\\BerufsausbildungOrt}{} ' + 
-            					 '\\\\newif\\\\ifIsBeruflicheAnerkennung\\\\IsBeruflicheAnerkennungtrue ' + 
+            					 '\\\\newif\\\\ifIsBeruflicheAnerkennung\\\\IsBeruflicheAnerkennungfalse ' + 
             					 '\\\\newif\\\\ifIsBeruflicheAnerkennungTeilweise\\\\IsBeruflicheAnerkennungTeilweisefalse ' + 
             					 '\\\\newcommand{\\\\Nachweis}{} ' + 
             					 '\\\\newif\\\\ifIsSonstigeAusbildung\\\\IsSonstigeAusbildungtrue ' + 
@@ -239,7 +239,7 @@ public class SkilleratorPdfComponent {
             isFieldChecked = Boolean.valueOf(isChecked);
             fieldValue = '';
             if(isFieldChecked){
-                fieldValue = fieldDate.format();
+                fieldValue = fieldDate.format('dd.MM.yyyy');
             }
         }
     }
