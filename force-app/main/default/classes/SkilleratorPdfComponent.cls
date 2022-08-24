@@ -92,8 +92,7 @@ public class SkilleratorPdfComponent {
             					 '\\\\newif\\\\ifIsBerufsausbildung\\\\IsBerufsausbildungfalse ' + 
             					 '\\\\newcommand{\\\\Berufsausbildung}{} ' + 
             					 '\\\\newcommand{\\\\BerufsausbildungOrt}{} ' + 
-            					 '\\\\newif\\\\ifIsBeruflicheAnerkennungJa\\\\IsBeruflicheAnerkennungJafalse ' + 
-            					 '\\\\newif\\\\ifIsBeruflicheAnerkennungNein\\\\IsBeruflicheAnerkennungNeinfalse ' + 
+            					 '\\\\newif\\\\ifIsBeruflicheAnerkennung\\\\IsBeruflicheAnerkennungtrue ' + 
             					 '\\\\newif\\\\ifIsBeruflicheAnerkennungTeilweise\\\\IsBeruflicheAnerkennungTeilweisefalse ' + 
             					 '\\\\newcommand{\\\\Nachweis}{} ' + 
             					 '\\\\newif\\\\ifIsSonstigeAusbildung\\\\IsSonstigeAusbildungtrue ' + 
