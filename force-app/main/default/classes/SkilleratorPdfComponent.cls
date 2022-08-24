@@ -236,11 +236,11 @@ public class SkilleratorPdfComponent {
         public Boolean isFieldChecked;
         public String fieldValue;
 
-        public ConditionalDateDataEntry(String isChecked, Datetime date){
+        public ConditionalDateDataEntry(String isChecked, Datetime fieldDate){
             isFieldChecked = Boolean.valueOf(isChecked);
             fieldValue = '';
             if(isFieldChecked){
-                fieldValue = date.format();
+                fieldValue = fieldDate.format();
             }
         }
     }
