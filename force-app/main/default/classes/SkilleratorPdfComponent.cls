@@ -18,12 +18,8 @@ public class SkilleratorPdfComponent {
         
         String genderStr = account.Salutation;
 
-        Boolean isBefristet = Boolean.valueOf('true');
-        String befristetBis = '';
-        if(isBefristet){
-            DateTime befristetBisDate = System.Now().addDays(-1).addYears(1);
-            befristetBis = befristetBisDate.format();
-        }
+        ConditionalDateDataEntry befristet = new ConditionalDateDataEntry('true', System.Now().addDays(-1).addYears(1));
+        ConditionalDateDataEntry neueinreise = new ConditionalDateDataEntry('true', System.Now());
 
         String body = '{' +
             '"compile": {' +
@@ -77,12 +73,12 @@ public class SkilleratorPdfComponent {
             					 '\\\\newcommand{\\\\Fax}{089/24887906} ' + 
             					 '\\\\newcommand{\\\\EMail}{simone.diterlizzi@social-bee.de} ' + 
             					 '\\\\newcommand{\\\\Betriebsnummer}{95695562} ' + 
-            					 '\\\\newif\\\\ifIsNeueinreise\\\\IsNeueinreisetrue ' + 
-            					 '\\\\newcommand{\\\\beginnt}{\\\\today} ' + 
+            					 '\\\\newif\\\\ifIsNeueinreise\\\\IsNeueinreise' + neueinreise.isFieldChecked + ' ' + 
+            					 '\\\\newcommand{\\\\beginnt}{' + neueinreise.fieldValue + '} ' + 
             					 '\\\\newif\\\\ifIsVerlaengerung\\\\IsVerlaengerungfalse ' + 
             					 '\\\\newcommand{\\\\besteht}{} ' + 
-            					 '\\\\newif\\\\ifIsBefristet\\\\IsBefristet' + isBefristet + ' ' + 
-            					 '\\\\newcommand{\\\\befristet}{' + befristetBis + '}' + 
+            					 '\\\\newif\\\\ifIsBefristet\\\\IsBefristet' + befristet.isFieldChecked + ' ' + 
+            					 '\\\\newcommand{\\\\befristet}{' + befristet.fieldValue + '}' + 
             					 '\\\\newif\\\\ifIsLeiharbeiter\\\\IsLeiharbeitertrue ' + 
             					 '\\\\newif\\\\ifIsArbeitsort\\\\IsArbeitsorttrue ' + 
             					 '\\\\newcommand{\\\\Ort}{Großraum München} ' + 
@@ -234,5 +230,18 @@ public class SkilleratorPdfComponent {
         public String path;
         public String type;
         public String build;
+    }
+
+    public class ConditionalDateDataEntry{
+        public Boolean isFieldChecked;
+        public String fieldValue;
+
+        public ConditionalDateDataEntry(String isChecked, Datetime date){
+            isFieldChecked = Boolean.valueOf(isChecked);
+            fieldValue = '';
+            if(isFieldChecked){
+                fieldValue = date.format();
+            }
+        }
     }
 }
