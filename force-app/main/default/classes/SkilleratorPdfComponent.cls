@@ -18,7 +18,7 @@ public class SkilleratorPdfComponent {
         
         String genderStr = account.Salutation;
 
-        ConditionalDateDataEntry befristet = new ConditionalDateDataEntry('true', System.Now().addDays(-1).addYears(1));
+        ConditionalDateDataEntry befristet = new ConditionalDateDataEntry('true', System.Now().addDays(-1).addYears(2));
         ConditionalDateDataEntry neueinreise = new ConditionalDateDataEntry('true', System.Now());
 
         String body = '{' +
