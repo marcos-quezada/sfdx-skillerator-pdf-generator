@@ -1,12 +1,19 @@
 ({
-    runCallout : function(cmp) {
-        let action = cmp.get('c.doCallout');
-        action.setParams({accountId : cmp.get('v.recordId')});
+    init: function (component, event, helper) {              
+    var recordId = component.get('v.recordId');        
+    var evt = $A.get("e.force:navigateToSObject");        
+    evt.setParams({            
+        recordId: recordId,
+      	slideDevName: "related"
+    });   
+        
+    let action = component.get('c.doCallout');
+        action.setParams({accountId : component.get('v.recordId')});
         action.setCallback(this, function(response){
             let state = response.getState();
             if (state === "SUCCESS") {
-                alert('Saved OK: ' + response.getReturnValue());
-                $A.get("e.force:closeQuickAction").fire(); // if you want to self-close
+                component.set('v.loaded', true)
+                evt.fire();
             } else if (state === "ERROR") {
                 var errors = response.getError();
                 if (errors) {
@@ -18,6 +25,6 @@
                 }
             }
         });
-        $A.enqueueAction(action);
-    }
+        $A.enqueueAction(action);   
+	}
 })
