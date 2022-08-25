@@ -17,6 +17,12 @@ public class SkilleratorPdfComponent {
         Account account = accounts[0];
         
         String genderStr = account.Salutation;
+        
+        List<String> nameTokens = new List<String>();
+        nameTokens.add(account.FirstName);
+        if(account.MiddleName != null){
+            nameTokens.add(account.MiddleName);
+        }
 
         ConditionalDateDataEntry befristet = new ConditionalDateDataEntry('true', System.Now().addDays(-1).addYears(2));
         ConditionalDateDataEntry neueinreise = new ConditionalDateDataEntry('true', System.Now());
@@ -58,7 +64,7 @@ public class SkilleratorPdfComponent {
                                  '\\\\newif\\\\ifIsErsterteilung\\\\IsErsterteilungtrue ' + 
             					 '\\\\newif\\\\ifIsVerlaengerung\\\\IsVerlaengerungtrue ' + 
             					 '\\\\newcommand{\\\\Name}{' + account.LastName +'} ' + 
-            					 '\\\\newcommand{\\\\Vorname}{' + account.FirstName + ' ' + account.MiddleName == null ? '' : account.MiddleName + '} ' + 
+            					 '\\\\newcommand{\\\\Vorname}{' + String.join(nameTokens, ' ') + '} ' + 
              					 '\\\\newif\\\\ifIsWeiblich\\\\IsWeiblich' + account.Salutation.equals('Ms.') + ' ' + 
             					 '\\\\newif\\\\ifIsMaennlich\\\\IsMaennlich' + account.Salutation.equals('Mr.') + ' ' + 
             					 '\\\\newif\\\\ifIsDivers\\\\IsDivers' + account.Salutation.equals('Mx.') + ' ' + 
