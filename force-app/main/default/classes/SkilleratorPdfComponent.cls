@@ -58,7 +58,7 @@ public class SkilleratorPdfComponent {
                                  '\\\\newif\\\\ifIsErsterteilung\\\\IsErsterteilungtrue ' + 
             					 '\\\\newif\\\\ifIsVerlaengerung\\\\IsVerlaengerungtrue ' + 
             					 '\\\\newcommand{\\\\Name}{' + account.LastName +'} ' + 
-            					 '\\\\newcommand{\\\\Vorname}{' + account.FirstName + ' ' + account.MiddleName + '} ' + 
+            					 '\\\\newcommand{\\\\Vorname}{' + account.FirstName + ' ' + account.MiddleName == null ? '' : account.MiddleName + '} ' + 
              					 '\\\\newif\\\\ifIsWeiblich\\\\IsWeiblich' + account.Salutation.equals('Ms.') + ' ' + 
             					 '\\\\newif\\\\ifIsMaennlich\\\\IsMaennlich' + account.Salutation.equals('Mr.') + ' ' + 
             					 '\\\\newif\\\\ifIsDivers\\\\IsDivers' + account.Salutation.equals('Mx.') + ' ' + 
