@@ -5,7 +5,7 @@
     
     <h3 class="slds-section-title--divider">Generating Erklärung zum Beschäftigungsverhältnis ...</h3>
     
-    <div class="exampleHolder">
+    <div class="spinnerHolder">
     	<lightning:spinner size="large" variant="brand" alternativeText="Please wait..." />
     </div>
 </aura:component>
