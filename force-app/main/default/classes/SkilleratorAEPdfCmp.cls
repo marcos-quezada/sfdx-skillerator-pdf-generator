@@ -1,11 +1,11 @@
-public class SkilleratorPdfComponent {
+public class SkilleratorAEPdfCmp {
     @AuraEnabled
     public static String doCallout(Id accountId){
         if(accountId == null){
             throw new MyException('Missing record id');
         }
 
-        String endpointBase = 'http://159.223.24.62/project/';
+        String endpointBase = 'http://159.223.24.62/project/ae-';
         endpointBase += accountId;
         String endpointCompile = endpointBase + '/compile';
         

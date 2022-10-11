@@ -1,9 +1,9 @@
 <!-- Loosely based on https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/controllers_server_actions_call.htm -->
-<aura:component controller="SkilleratorPdfComponent" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+<aura:component controller="SkilleratorSBPdfCmp" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
     <aura:handler name="init" action="{!c.init}" value="{!this}" /> 
     <aura:attribute name="recordId" type="String" />
     
-    <h3 class="slds-section-title--divider">Generating Erklärung zum Beschäftigungsverhältnis ...</h3>
+    <h3 class="slds-section-title--divider">Generating Stellenbeschreibung ...</h3>
     
     <div class="spinnerHolder">
     	<lightning:spinner size="large" variant="brand" alternativeText="Please wait..." />
