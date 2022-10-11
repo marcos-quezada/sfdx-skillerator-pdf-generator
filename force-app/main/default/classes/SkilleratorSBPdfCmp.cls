@@ -93,7 +93,7 @@ public class SkilleratorSBPdfCmp {
                                  '\\\\newcommand{\\\\ArbeitstageProUrlaubsjahr}{24} ' + 
                                  '\\\\newif\\\\ifIsBevorzugung\\\\IsBevorzugungtrue ' +
                                  '\\\\newcommand{\\\\FreiwilligeAngabe}{} ' + 
-                                 '\\\\newcommand{\\\\OrtDatum}{München, \\\\today}"' +
+                                 '\\\\newcommand{\\\\OrtDatum}{München, \\\\today} ' +
                                  '\\\\newcommand{\\\\Kontaktperson}{Simone Di Terlizzi} ' + 
             					 '\\\\newcommand{\\\\TelefonNummer}{089/18914481}"' + 
                 '}]' +
