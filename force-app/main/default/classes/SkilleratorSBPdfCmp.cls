@@ -1,4 +1,4 @@
-public class SkilleratorAEPdfCmp {
+public class SkilleratorSBPdfCmp {
     @AuraEnabled
     public static String doCallout(Id accountId){
         if(accountId == null){
