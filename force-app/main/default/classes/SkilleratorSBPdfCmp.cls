@@ -37,8 +37,8 @@ public class SkilleratorSBPdfCmp {
                     '"path": "Stellenbeschreibung1.png",' +
                     '"url": "http://resources-server/images/Stellenbeschreibung1.png"' +
                 '},{' +
-                    '"path": "Stellenbeschreibung1.png",' +
-                    '"url": "http://resources-server/images/Stellenbeschreibung1.png"' +
+                    '"path": "Stellenbeschreibung2.png",' +
+                    '"url": "http://resources-server/images/Stellenbeschreibung2.png"' +
                 '},{' +
                     '"path": "lmsans8-regular.otf",' +
                     '"url": "http://resources-server/fonts/lmsans8-regular.otf"' +
