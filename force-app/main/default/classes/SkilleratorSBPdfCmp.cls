@@ -73,7 +73,7 @@ public class SkilleratorSBPdfCmp {
                                  '\\\\newif\\\\ifIsArbeitsort\\\\IsArbeitsorttrue ' + 
             					 '\\\\newcommand{\\\\Ort}{Großraum München} ' + 
                                  '\\\\newif\\\\ifIsAbSofort\\\\IsAbSoforttrue ' +
-                                 '\\\\newcommand{\\\\beginnt}{' + neueinreise.fieldValue + '} ' + 
+                                 '\\\\newcommand{\\\\beginnt}{} ' + 
                                  '\\\\newif\\\\ifIsBefristet\\\\IsBefristet' + befristet.isFieldChecked + ' ' + 
             					 '\\\\newcommand{\\\\befristet}{' + befristet.fieldValue + '}' + 
                                  '\\\\newif\\\\ifIsLohn\\\\IsLohntrue ' + 
